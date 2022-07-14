@@ -1,0 +1,244 @@
+@use '../abstract' as *;
+/*----------------------------------------*/
+/*  03. FEATURES CSS START
+/*----------------------------------------*/
+
+.features{
+    &__title{
+        font-size: 30px;
+        margin-bottom: 27px;
+        @media #{$xl}{
+            font-size: 25px;
+        }
+        @media #{$xs}{
+            font-size: 25px;
+        }
+    }
+    &__content{
+        & > span{
+            font-size: 18px;
+            color: $black;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+    &__item{
+        padding: 55px 45px 50px 50px;
+        @include border-radius(6px);
+        &.preview{
+            padding-bottom: 75px;
+        }
+    }
+    &__thumb{
+        & .fea-img-build-wrapper{
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            display: block;
+            border: 4px solid $white;
+            @include box-shadow(0px 20px 20px 0px rgba(86, 54, 0, 0.1));
+            @include border-radius(10px);
+
+            @media #{$xs}{
+                width: 270px;
+            }
+        }
+        & .fea-img-install-wrapper{
+            border: 5px solid $white;
+            @include border-radius(10px);
+            @include box-shadow(0px 40px 40px 0px rgba(0, 71, 115, 0.1));
+            @include transform(rotate(-20deg) translateY(-20px));
+            width: 222px;
+            height: 185px;
+            overflow: hidden;
+            width: 221px;
+            height: 176px;
+            display: inline-block;
+            
+        }
+        & .fea-img-preview-wrapper{
+            position: absolute;
+            top: 19px;
+            left: 1px;
+            width: 210px;
+            height: 175px;
+            overflow: hidden;
+        }
+        & img{
+            &.fea-img-build{
+                
+            }
+            &.fea-img-install{
+                
+            }
+            &.fea-img-preview{
+                
+            }
+        }
+        &-build{
+            width: 350px;
+        }
+        &-builder{
+            margin-top: -80px;
+            text-align: right;
+            & img{
+                @include box-shadow(0px 20px 20px 0px rgba(86, 54, 0, 0.1));
+            }
+        }
+        &-install{
+            position: relative;
+            padding-top: 35px;
+            text-align: center;
+            width: 270px;
+            & .fea-hand-icon{
+                position: absolute;
+                top: 25px;
+                left: -30px;
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                line-height: 70px;
+                text-align: center;
+                @include border-radius(50%);
+                background: $t-brown;
+                animation: hand-pulse 1.5s infinite linear;
+
+            }
+        }
+        &-preview{
+            position: relative;
+            width: 290px;
+            @media #{$xs}{
+                width: 250px;
+                margin-left: -50px;
+
+            }
+            & img{
+                &.fea-img-preview-placeholder{
+                    @include box-shadow(0px 40px 40px 0px rgba(0, 71, 115, 0.1));
+                }
+            }
+        }
+    }
+    &__shape{
+        &-1{
+            position: absolute;
+            top: 68%;
+            left: 54%;
+            @include transform(translate(-50%, -50%));
+            z-index: -1;
+            @media #{$xs}{
+                left: 50%;
+            }
+        }
+        &-2{
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+            z-index: -1;
+            @media #{$xs}{
+                left: 50%;
+            }
+        }
+        &-3{
+            position: absolute;
+            top: 65%;
+            left: 32%;
+            @include transform(translate(-50%, -50%));
+            z-index: -1;
+            @media #{$xs}{
+                left: 50%;
+            }
+        }
+    }
+}
+
+// theme features
+
+.theme{
+    &__features{
+        &-border-right{
+            border-right: 1px solid $border-2;
+        }
+        &-border-bottom{
+            border-bottom: 1px solid $border-2;
+        }
+        &-item{
+            padding: 50px;
+            padding-bottom: 40px;
+            @media #{$lg}{
+                border: none;
+                border-right: 1px solid $border-2;
+                border-bottom: 1px solid $border-2;
+            }
+            @media #{$md,$sm}{
+                border: none;
+                border-right: 1px solid $border-2;
+                border-bottom: 1px solid $border-2;
+            }
+            &:hover{
+                @include border-radius(6px);
+                border-color: $white;
+                background: $white;
+                @include box-shadow(0px 20px 30px 0px rgba(1, 11, 60, 0.08));
+
+                & .theme__features-icon span{
+                    border-color: $border;
+                    @include box-shadow(none);
+                }
+            }
+        }
+        &-icon{
+            & span{
+                display: inline-block;
+                width: 90px;
+                height: 90px;
+                line-height: 90px;
+                text-align: center;
+                background: $white;
+                border: 2px solid transparent;
+                overflow: hidden;
+                @include border-radius(6px);
+                @include box-shadow(0px 30px 40px 0px rgba(1, 11, 60, 0.06));
+            }
+        }
+        &-content{
+            & h3{
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 2px;
+            }
+            & span{
+                font-size: 15px;
+                color: $t-blue;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+
+@-webkit-keyframes hand-pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255,255.4);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 80px rgba(255,255,255,0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255,0);
+    }
+  }
+  @keyframes hand-pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+      }
+      70% {
+          -webkit-box-shadow: 0 0 0 80px rgba(255,255,255, 0);
+      }
+      100% {
+          -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+      }
+  }

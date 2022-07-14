@@ -1,0 +1,152 @@
+@use '../abstract' as *;
+
+/*----------------------------------------*/
+/*  02. SLIDER CSS START
+/*----------------------------------------*/
+
+.slider{
+    &__height{
+        min-height: 1000px;
+        @media #{$xs}{
+            min-height: 500px;
+        }
+    }
+    &__title{
+        font-size: 70px;
+        margin-bottom: 25px;
+
+        @media #{$xl}{
+            font-size: 65px;
+        }
+        @media #{$lg}{
+            font-size: 60px;
+        }
+        @media #{$md}{
+            font-size: 55px;
+        }
+        @media #{$sm}{
+            font-size: 50px;
+        }
+        @media #{$xs}{
+            font-size: 30px;
+        }
+		& span{
+			position: relative;
+			& img{
+				position: absolute;
+				left: -14px;
+				bottom: 25px;
+				z-index: -1;
+				-webkit-animation: section-animation 3s infinite;
+				animation: section-animation 3s infinite;
+			}
+			&.yellow-bg-big{
+				& img{
+					bottom: 15px;
+					width: 120%;
+					-webkit-animation: section-animation-2 3s infinite;
+					animation: section-animation-2 3s infinite;
+				}
+			}
+			&.yellow-bg-sm{
+				& img{
+					bottom: 10px;
+					width: 120%;
+					-webkit-animation: section-animation-2 3s infinite;
+					animation: section-animation-2 3s infinite;
+				}
+			}
+		}
+    }
+    &__shape{
+        &-img{
+            position: absolute;
+        }
+        &-1{
+            left: 4%;
+            top: 16%;
+            -webkit-animation: hero-circle-1 6s linear 0s infinite alternate;
+            -moz-animation: hero-circle-1 6s linear 0s infinite alternate; 
+            -o-animation: hero-circle-1 6s linear 0s infinite alternate;
+            animation: hero-circle-1 6s linear 0s infinite alternate; 
+        }
+        &-2{
+            left: 0;
+            bottom: 22%;
+        }
+        &-3{
+            right: 20%;
+            bottom: 24%;
+            -webkit-animation: hero-circle-2 6s linear 0s infinite alternate;
+            -moz-animation: hero-circle-2 6s linear 0s infinite alternate; 
+            -o-animation: hero-circle-2 6s linear 0s infinite alternate;
+            animation: hero-circle-2 6s linear 0s infinite alternate; 
+        }
+        &-4{
+            right: -3%;
+            bottom: -28%;
+        }
+        &-5{
+            right: 11%;
+            bottom: -24%;
+        }
+        &-6{
+            top: 18%;
+            right: 28%;
+        }
+    }
+    &__inner{
+        position: relative;
+        overflow: hidden;
+    }
+    &__thumb{
+        &-img{
+            position: absolute;
+            z-index: 1;
+        }
+        &.one{
+            right: -5%;
+            top: -155px;
+        }
+        &.two{
+            left: 85%;
+            top: 225px;
+        }
+        &.three{
+            left: 75%;
+            top: 515px;
+        }
+        &.four{
+            top: 340px;
+            left: 30%;
+        }
+        &.five{
+            top: 710px;
+            left: 19%;
+        }
+    }
+    &__content{
+        @media #{$xs}{
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+@keyframes hero-circle-1{
+    0%{
+        @include transform(rotate(0deg));
+    }
+    100%{
+        @include transform(rotate(360deg));
+    }
+}
+
+@keyframes hero-circle-2{
+    0%{
+        @include transform(translateY(-100px));
+    }
+    100%{
+        @include transform(translateY(50px));
+    }
+}
